@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="odev.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="row justify-align-center mt-4 ">
+        <div class="col">
+            <form name="myForm" action="javascript:void(0);" onsubmit="ekle()" method="post">
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <label for="inputName" class="col-form-label">Name:</label>
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" id="inputName" class="form-control" placeholder="Enter Name" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <label for="inputSurname" class="col-form-label">Surname:</label>
+                    </div>
+                    <div class="col-lg-6">
+                        <input type="text" id="inputSurname" class="form-control" placeholder="Enter Surname" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <label for="inputEmail" class="col-form-label">Email Adress:</label>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group ">
+
+                            <input type="text" class="form-control" id="inputEmail" placeholder="Email" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-lg-3">
+                        <label for="inputnumber" class="col-form-label">Phone Number:</label>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="input-group ">
+                            <input type="text" class="form-control" id="inputnumber" placeholder="Phone Number"
+                                required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-3 offset-lg-3 offset-md-3 offset-sm-3">
+                        <button onclick="ekle()" type="button" class="btn btn-secondary mb-3">Ekle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="margin-left: 35%;" class="row align-items-center ">
+        <div class="col-12">
+            <table style="border: 1px solid black;" id="liste">
+                <thead>
+                    <tr style="border: 1px solid black;">
+                        <th style="border: 1px solid black;" id="counter" scope="col">Id</th>
+                        <th style="border: 1px solid black;" scope="col">Name</th>
+                        <th style="border: 1px solid black;" scope="col">Surname</th>
+                        <th style="border: 1px solid black;" scope="col">Email</th>
+                        <th style="border: 1px solid black;" scope="col">Phone Number</th>
+                        <th style="border:1px solid black" id="buton1" scope="col">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody id="listeBody">
+
+                </tbody>
+
+            </table>
+        </div>
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row justify-align-center mt-4 ">
+                            <div class="col">
+                                <form name="myForm" action="javascript:void(0);" onsubmit="ekle()" method="post">
+                                    <div class="row mb-3">
+                                        <input type="hidden" name="idTutucu" id="id2">
+                                        <div class="col-lg-3">
+                                            <label for="inputName" class="col-form-label">Name:</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="text" id="modalName" class="form-control" placeholder="Enter Name" required>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-3">
+                                            <label for="inputSurname" class="col-form-label">Surname:</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <input type="text" id="modalSurname" class="form-control" placeholder="Enter Surname" required>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-3">
+                                            <label for="inputEmail" class="col-form-label">Email Adress:</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="input-group ">
+                    
+                                                <input type="text" class="form-control" id="modalEmail" placeholder="Email" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-lg-3">
+                                            <label for="inputnumber" class="col-form-label">Phone Number:</label>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="input-group ">
+                                                <input type="text" class="form-control" id="modalNumber" placeholder="Phone Number"
+                                                    required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                         <!-- <button type="button" onclick="edit()" id="editKullanici" class="btn btn-primary">Uygula</button> -->
+                        <button onclick="edit()" class="btn btn-warning" data-bs-dismiss="modal">Düzenle</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+        crossorigin="anonymous"></script>
+    <script src="./odev.js"></script>
+</body>
+
+</html>
